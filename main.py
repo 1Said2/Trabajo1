@@ -6,7 +6,6 @@ Diego Montesdeoca
 Gisella Salgado
 Kevin Arteaga
 '''''
-print("Hola")
 
 print("lo que sea")
 print("lo que sea")
