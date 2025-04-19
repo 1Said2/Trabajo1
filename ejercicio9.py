@@ -43,4 +43,5 @@ def ordenar_matriz_por_insercion(matriz):
 
 # Llamar a las funciones
 matriz = crear_matriz()
+
 ordenar_matriz_por_insercion(matriz)

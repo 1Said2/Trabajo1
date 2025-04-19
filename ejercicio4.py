@@ -16,29 +16,42 @@ def busqueda_binaria_fila(fila, objetivo):
     return -1
 
 def encontrar_posiciones_elemento(matriz, objetivo):
-    posiciones = []
-    for i, fila in enumerate(matriz):
-        # Ordenar la fila para realizar la búsqueda binaria
-        fila_ordenada = sorted(fila)
-        indice_columna = busqueda_binaria_fila(fila_ordenada, objetivo)
-        if indice_columna != -1:
-            # Encontrar el índice original en la fila no ordenada
-            indice_original = fila.index(fila_ordenada[indice_columna])
-            posiciones.append((i, indice_original))
-    return posiciones
+    filas = len(matriz)
+    columnas = len(matriz[0])
+    izquierda = 0
+    derecha = filas * columnas - 1
+
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+        fila = medio // columnas
+        columna = medio % columnas
+        valor = matriz[fila][columna]
+
+        if valor == objetivo:
+            return fila, columna
+        elif valor < objetivo:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+
+    return False
 
 def main():
     try:
         n = int(input("Ingrese el número de filas (n): "))
         m = int(input("Ingrese el número de columnas (m): "))
-        objetivo = int(input("Ingrese el número a buscar: "))
 
         matriz = generar_matriz_aleatoria(n, m)
         print("Matriz Generada:")
-        for fila in matriz:
-            print(fila)
+        plana_ordenada = sorted([elem for fila in matriz for elem in fila])
 
-        posiciones = encontrar_posiciones_elemento(matriz, objetivo)
+        columnas = len(matriz[0])
+        matriz_ordenada = [plana_ordenada[i:i + columnas] for i in range(0, len(plana_ordenada), columnas)]
+        for fila in matriz_ordenada:
+            print(*fila,sep="\t")
+        objetivo = int(input("Ingrese el número a buscar: "))
+
+        posiciones = encontrar_posiciones_elemento(matriz_ordenada, objetivo)
         if posiciones:
             print(f"El número {objetivo} se encuentra en las posiciones: {posiciones}")
         else:

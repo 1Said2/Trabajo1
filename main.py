@@ -38,7 +38,7 @@ def generar_reporte(ejercicio, tiempos):
     # Tabla
     print("\n📊 RESULTADOS:")
     tabla = [[param, f"{tiempo:.6f}s"] for param, tiempo in zip(range(10, 101, 10), tiempos)]
-    print(tabulate(tabla, headers=["Parámetro", "Tiempo (s)"], tablefmt="grid"))
+    print(tabulate(tabla, headers=["Cantidad de elementos", "Tiempo (s)"], tablefmt="grid"))
 
     # Gráfica
     plt.figure(figsize=(10, 5))
@@ -64,11 +64,12 @@ if __name__ == "__main__":
             ejercicio = int(opcion)
             tiempos = []
             print(f"\n🔍 Ejecutando Ejercicio {ejercicio}...")
-            for param in range(10, 101, 10):
-                tiempo = ejecutar_ejercicio(ejercicio, param)
-                if tiempo is not None:
-                    tiempos.append(tiempo)
-                    print(f"  - Parámetro {param}: {tiempo:.6f}s")
+            for cantidad_elementos in range(10, 101, 10):
+                print(f"Cantidad de elementos: {cantidad_elementos}")
+                tiempo = ejecutar_ejercicio(ejercicio, cantidad_elementos)
+                tiempos.append(tiempo)
+                print()
+
 
             if tiempos:
                 generar_reporte(ejercicio, tiempos)
