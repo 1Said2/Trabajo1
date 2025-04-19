@@ -8,7 +8,7 @@ def generar_arreglo_y_busqueda():
             return
 
         # Generar el arreglo de numeros aleatorios
-        arreglo_aleatorio = [random.randint(0, 20) for _ in range(tamanio_arreglo)]
+        arreglo_aleatorio = [random.randint(0, 100) for _ in range(tamanio_arreglo)]
 
         print("\nArreglo original (sin ordenar):")
         print(arreglo_aleatorio)
