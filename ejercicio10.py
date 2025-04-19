@@ -1,4 +1,5 @@
 import random
+import time
 
 def generar_matriz_notas(num_estudiantes):
 
@@ -41,18 +42,30 @@ def contar_estados(matriz):
             reprobados += 1
     return {"Aprobados": aprobados, "Supletorios": supletorios, "Reprobados": reprobados}
 
-if __name__ == "__main__":
+def main(cantidad_de_datos=0):
     try:
-        num_estudiantes = int(input("Ingrese la cantidad de estudiantes: "))
+
+        num_estudiantes = cantidad_de_datos
+
         if num_estudiantes <= 0:
             print("Por favor, ingrese un número de estudiantes válido (mayor que 0).")
+
         else:
             matriz_generada = generar_matriz_notas(num_estudiantes)
             imprimir_matriz(matriz_generada)
+
+            inicio = time.time()
+
             conteo_estados = contar_estados(matriz_generada)
             print("\nConteo de estados:")
             for estado, cantidad in conteo_estados.items():
                 print(f"{estado}: {cantidad}")
+            
+            return time.time() - inicio
+
     except ValueError:
         print("Error: Por favor, ingrese un número entero para la cantidad de estudiantes.")
+
+if __name__ == "__main__":
+    main()
 

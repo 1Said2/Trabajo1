@@ -22,10 +22,12 @@ def encontrar_posiciones_elemento(matriz, objetivo):
         # Ordenar la fila para realizar la búsqueda binaria
         fila_ordenada = sorted(fila)
         indice_columna = busqueda_binaria_fila(fila_ordenada, objetivo)
+
         if indice_columna != -1:
             # Encontrar el índice original en la fila no ordenada
             indice_original = fila.index(fila_ordenada[indice_columna])
             posiciones.append((paso, indice_original))
+
     return posiciones
 
 
