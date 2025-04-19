@@ -1,10 +1,11 @@
 import random
+import time
 
 # Función para crear la matriz
-def crear_matriz():
-    # Solicitar al usuario el número de filas y columnas
-    filas = int(input("Ingrese el número de filas: "))
-    columnas = int(input("Ingrese el número de columnas: "))
+def crear_matriz(cantidad_de_elementos):
+    division = cantidad_de_elementos // 2
+    filas = division
+    columnas = division + 2
 
     # Crear la matriz con números aleatorios entre 0 y 100
     matriz = [[random.randint(0, 100) for _ in range(columnas)] for _ in range(filas)]
@@ -41,7 +42,11 @@ def ordenar_matriz_por_insercion(matriz):
     else:
         print("Índice de fila fuera de rango.")
 
-# Llamar a las funciones
-matriz = crear_matriz()
-
-ordenar_matriz_por_insercion(matriz)
+# Ejecutar la funcion principal
+def main(cantidad_de_datos=0):
+    inicio = time.time()
+    ordenar_matriz_por_insercion(crear_matriz(cantidad_de_datos))
+    fin=time.time()
+    return fin - inicio
+if __name__ == "__main__":
+    main()

@@ -1,8 +1,10 @@
 import random
+import time
 
-def generar_arreglo_y_busqueda():
-        #Solicitar al usuario el tamano del arreglo
-        tamanio_arreglo = int(input("Ingrese el tamaño del arreglo: "))
+
+def generar_arreglo_y_busqueda(cantidad_de_datos):
+        # Tamano del arreglo
+        tamanio_arreglo = cantidad_de_datos
         if tamanio_arreglo <= 0:
             print("El tamaño debe ser un número entero positivo.")
             return
@@ -14,7 +16,7 @@ def generar_arreglo_y_busqueda():
         print(arreglo_aleatorio)
 
         # Solicitar el elemento a buscar
-        elemento_a_buscar = int(input("\nIngrese el elemento entero a buscar: "))
+        elemento_a_buscar = random.randint(0,100)
 
         # Ordenar el arreglo para la busqueda binaria
         arreglo_ordenado = sorted(arreglo_aleatorio)
@@ -61,4 +63,10 @@ def busqueda_binaria(arreglo_ordenado, elemento_a_buscar):
     return sorted(posiciones)
 
 # Ejecutar la funcion principal
-generar_arreglo_y_busqueda()
+def main(cantidad_de_datos=0):
+    inicio = time.time()
+    generar_arreglo_y_busqueda(cantidad_de_datos)
+    fin=time.time()
+    return fin - inicio
+if __name__ == "__main__":
+    main()
