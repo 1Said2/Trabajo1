@@ -12,13 +12,15 @@ def main():
     max_limit = (order * order + order) // 2
     counter = 1
 
-    for row in range(order):
+    for row in range(0, order, 2):
         for column in range(row + 1):
             matrix[row][column] = counter
             counter += 1
 
+        row += 1
+
         if counter < max_limit:
-            for column in range(row + 1, -1, -1):
+            for column in range(row, -1, -1):
                 matrix[row][column] = counter
                 counter += 1
 
