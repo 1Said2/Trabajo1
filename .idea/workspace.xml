@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d99f493-2072-4286-95c6-a0aaf9172643" name="Changes" comment="Commits pendientes">
-      <change beforePath="$PROJECT_DIR$/.idea/Trabajo1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trabajo1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejercicio5.py" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicio5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejercicio7.py" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicio7.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="4d99f493-2072-4286-95c6-a0aaf9172643" name="Changes" comment="implementación del ejercicio3 y ejercicio9 al main">
+      <change beforePath="$PROJECT_DIR$/ejercicio3.py" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicio3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejercicio9.py" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicio9.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,19 +48,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Ejercicio1.executor": "Run",
-    "Python.Ejercicio2.executor": "Run",
-    "Python.ejercicio5.executor": "Run",
-    "Python.ejercicio7.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/SAID-WINDOWS/Documents/Python"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Ejercicio1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Ejercicio2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ejercicio5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ejercicio7.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SAID-WINDOWS/Documents/Python&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -129,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745028491751</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implementación del ejercicio3 y ejercicio9 al main">
+      <option name="closed" value="true" />
+      <created>1745106150461</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745106150461</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,6 +143,7 @@
     <MESSAGE value="Ejercicio 1 y 2 de nuevo" />
     <MESSAGE value="Cambio en .xml" />
     <MESSAGE value="Commits pendientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commits pendientes" />
+    <MESSAGE value="implementación del ejercicio3 y ejercicio9 al main" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementación del ejercicio3 y ejercicio9 al main" />
   </component>
 </project>
