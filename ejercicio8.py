@@ -8,7 +8,7 @@ def print_char_matrix(matrix):
 def fill_in_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
-            matrix[i][j] = chr(random.randint(65, 91))  # Random uppercase letter
+            matrix[i][j] = chr(random.randint(65, 90))  # Random uppercase letter
 
 def search_word(matrix, word):
     word_char = list(word)
