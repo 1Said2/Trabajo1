@@ -12,10 +12,9 @@ import matplotlib.pyplot as plt
 from tabulate import tabulate
 
 def ejecutar_ejercicio(numero_ejercicio, parametro):
-    """Ejecuta el main() del ejercicio y devuelve solo el tiempo."""
     try:
         modulo = importlib.import_module(f"ejercicio{numero_ejercicio}")
-        tiempo = modulo.main(parametro)  # Se espera que devuelva SOLO el tiempo
+        tiempo = modulo.main(parametro)
         return float(tiempo)
     except ImportError:
         print(f"\n❌ Error: Archivo 'ejercicio{numero_ejercicio}.py' no encontrado.")
@@ -25,7 +24,6 @@ def ejecutar_ejercicio(numero_ejercicio, parametro):
         return None
 
 def mostrar_menu():
-    """Muestra el menú interactivo."""
     print("\n" + "=" * 30)
     print("  MENÚ DE EJERCICIOS")
     print("=" * 30)
@@ -34,19 +32,16 @@ def mostrar_menu():
     print("  0. Salir")
 
 def generar_reporte(ejercicio, tiempos):
-    """Genera tabla y gráfica con los tiempos."""
-    # Tabla
     print("\n📊 RESULTADOS:")
-    tabla = [[param, f"{tiempo:.6f}s"] for param, tiempo in zip(range(10, 101, 10), tiempos)]
-    print(tabulate(tabla, headers=["Cantidad de elementos", "Tiempo (s)"], tablefmt="grid"))
+    tabla = [[param, f"{tiempo:.6f}s"] for param, tiempo in zip(range(1, 11), tiempos)]
+    print(tabulate(tabla, headers=["Iteraciones", "Tiempo (s)"], tablefmt="grid"))
 
-    # Gráfica
     plt.figure(figsize=(10, 5))
-    plt.plot(range(10, 101, 10), tiempos, 'o-', color='blue', label=f"Ejercicio {ejercicio}")
+    plt.plot(range(1, 11), tiempos, 'o-', color='blue', label=f"Ejercicio {ejercicio}")
     plt.title(f"⏱️ Tiempos de Ejecución (Ejercicio {ejercicio})")
-    plt.xlabel("Valor del Parámetro")
+    plt.xlabel("Iteraciones")
     plt.ylabel("Tiempo (segundos)")
-    plt.xticks(range(10, 101, 10))
+    plt.xticks(range(1, 11))
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.legend()
     plt.show()
@@ -65,7 +60,7 @@ if __name__ == "__main__":
             tiempos = []
             print(f"\n🔍 Ejecutando Ejercicio {ejercicio}...")
             for cantidad_elementos in range(10, 101, 10):
-                print(f"Cantidad de elementos: {cantidad_elementos}")
+                print(f"Iteracion: {cantidad_elementos//10}")
                 tiempo = ejecutar_ejercicio(ejercicio, cantidad_elementos)
                 tiempos.append(tiempo)
                 print()
