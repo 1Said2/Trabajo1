@@ -1,4 +1,5 @@
 import math
+import time
 
 
 def imprimir_matriz_int(matriz):
@@ -7,11 +8,7 @@ def imprimir_matriz_int(matriz):
     print()
 
 
-def main(tamanio = 0):
-    orden = int(math.sqrt(tamanio))
-
-    matriz = [[0] * orden for _ in range(orden)]
-
+def rellenar_matriz(matriz, orden):
     limite_maximo = (orden * orden + orden) // 2
     contador = 1
 
@@ -27,7 +24,19 @@ def main(tamanio = 0):
                 matriz[fila][columna] = contador
                 contador += 1
 
+
+def main(tamanio = 0):
+    orden = int(math.sqrt(tamanio))
+
+    matriz = [[0] * orden for _ in range(orden)]
+
+    inicio = time.time()
+    rellenar_matriz(matriz, orden)
+    fin = time.time()
+
     imprimir_matriz_int(matriz)
+
+    return fin - inicio
 
 
 if __name__ == "__main__":

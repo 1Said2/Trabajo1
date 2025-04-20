@@ -1,5 +1,7 @@
 import math
 import random
+import time
+
 
 def imprimir_matriz(matriz):
     for fila in matriz:
@@ -75,7 +77,11 @@ def main(tamanio = 0):
 
     palabra = encontrar_palabra_random(int(math.sqrt(tamanio))).upper()
 
+    inicio = time.time()
     encontrar_palabra(matriz, palabra)
+    fin = time.time()
+
+    return fin - inicio
 
 if __name__ == "__main__":
     main()
