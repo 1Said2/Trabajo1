@@ -51,17 +51,16 @@ def main(cantidad_de_datos=0):
             print("Por favor, ingrese un número de estudiantes válido (mayor que 0).")
 
         else:
-            matriz_generada = generar_matriz_notas(num_estudiantes)
-            imprimir_matriz(matriz_generada)
-
             inicio = time.time()
-
+            matriz_generada = generar_matriz_notas(num_estudiantes)
             conteo_estados = contar_estados(matriz_generada)
+            fin = time.time()
+            imprimir_matriz(matriz_generada)
             print("\nConteo de estados:")
             for estado, cantidad in conteo_estados.items():
                 print(f"{estado}: {cantidad}")
             
-            return time.time() - inicio
+            return fin - inicio
 
     except ValueError:
         print("Error: Por favor, ingrese un número entero para la cantidad de estudiantes.")
