@@ -1,70 +1,73 @@
+import math
 import random
 
-def print_char_matrix(matrix):
-    for row in matrix:
-        print("\t".join(row))
+def imprimir_matriz(matriz):
+    for fila in matriz:
+        print("\t".join(fila))
     print()
 
-def fill_in_matrix(matrix):
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            matrix[i][j] = chr(random.randint(65, 90))  # Random uppercase letter
 
-def search_word(matrix, word):
-    word_char = list(word)
-    counter_words_found = 0
+def rellenar_matriz(matriz):
+    for fila in range(len(matriz)):
+        for columna in range(len(matriz[fila])):
+            matriz[fila][columna] = chr(random.randint(65, 90))
 
-    for row in range(len(matrix)):
-        for col in range(len(matrix[row])):
-            first_letter = matrix[row][col]
-            if word_char[0] == first_letter:
 
-                if len(word_char) > 1:
-                    directions = [
-                        (-1, -1),  # Up-left
-                        (-1, 0),   # Up
-                        (-1, 1),   # Up-right
-                        (0, 1),    # Right
-                        (1, 1),    # Down-right
-                        (1, 0),    # Down
-                        (1, -1),   # Down-left
-                        (0, -1)    # Left
-                    ]
-                    for dr, dc in directions:
-                        found = False
-                        r, c = row, col
-                        for i in range(len(word_char)):
-                            if not (0 <= r < len(matrix) and 0 <= c < len(matrix[r])) or word_char[i] != matrix[r][c]:
-                                found = False
-                                break
-                            r += dr
-                            c += dc
-                            found = True
+def encontrar_palabra(matriz, palabra):
+    palabra_en_chars = list(palabra)
+    contador = 0
+    filas = len(matriz)
+    columnas = len(matriz[0])
 
-                        if found:
-                            print(f"Encontrado en ({row},{col}) hacia {'arriba izquierda' if (dr, dc) == (-1, -1) else 'arriba' if (dr, dc) == (-1, 0) else 'derecha' if (dr, dc) == (0, 1) else 'abajo derecha' if (dr, dc) == (1, 1) else 'abajo' if (dr, dc) == (1, 0) else 'abajo izquierda' if (dr, dc) == (1, -1) else 'izquierda'}.")
-                            counter_words_found += 1
+    direcciones = [
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, 1),
+        (1, 1),
+        (1, 0),
+        (1, -1),
+        (0, -1)
+    ]
 
+    for i in range(filas):
+        for j in range(columnas):
+            if matriz[i][j] == palabra_en_chars[0]:
+                if len(palabra_en_chars) == 1:
+                    print(f"({i},{j})")
+                    contador += 1
                 else:
-                    print(f"Encontrado en ({row},{col}).")
-                    counter_words_found += 1
+                    for dx, dy in direcciones:
+                        posiciones = []
+                        encontrado = True
+                        x, y = i, j
+                        for k in range(len(palabra_en_chars)):
+                            if 0 <= x < filas and 0 <= y < columnas and matriz[x][y] == palabra_en_chars[k]:
+                                posiciones.append(f"({x},{y})")
+                                x += dx
+                                y += dy
+                            else:
+                                encontrado = False
+                                break
+                        if encontrado:
+                            print("\t".join(posiciones))
+                            contador += 1
 
-    print(f"La palabra {word} se ha encontrado {counter_words_found} veces.")
+    print(f"La palabra {palabra} se ha encontrado {contador} veces.")
 
-def main():
-    rows = int(input("Ingrese el numero de filas: "))
-    cols = int(input("Ingrese el numero de columnas: "))
+def main(tamanio = 0):
+    filas = int(math.sqrt(tamanio))
+    columnas = int(math.sqrt(tamanio))
     print()
 
-    matrix = [[''] * cols for _ in range(rows)]
+    matriz = [['' for _ in range(columnas)] for _ in range(filas)]
 
-    fill_in_matrix(matrix)
+    rellenar_matriz(matriz)
+    imprimir_matriz(matriz)
 
-    print_char_matrix(matrix)
+    palabra = input("Ingrese la palabra a buscar: ").upper()
 
-    word = input("Ingrese la palabra a buscar: ").upper()
-
-    search_word(matrix, word)
+    encontrar_palabra(matriz, palabra)
 
 if __name__ == "__main__":
     main()

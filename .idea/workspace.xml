@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d99f493-2072-4286-95c6-a0aaf9172643" name="Changes" comment="implementación del ejercicio3 y ejercicio9 al main">
-      <change beforePath="$PROJECT_DIR$/ejercicio3.py" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicio3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejercicio9.py" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicio9.py" afterDir="false" />
+    <list default="true" id="4d99f493-2072-4286-95c6-a0aaf9172643" name="Changes" comment="Ejericio 8">
+      <change beforePath="$PROJECT_DIR$/.idea/Trabajo1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trabajo1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejercicio8.py" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicio8.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,8 @@
     &quot;Python.Ejercicio1.executor&quot;: &quot;Run&quot;,
     &quot;Python.Ejercicio2.executor&quot;: &quot;Run&quot;,
     &quot;Python.ejercicio5.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ejercicio7.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ejercicio6.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.ejercicio8.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -117,21 +120,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744995110435</updated>
     </task>
-    <task id="LOCAL-00006" summary="Commits pendientes">
+    <task id="LOCAL-00006" summary="Ejericio 8">
       <option name="closed" value="true" />
-      <created>1745028491751</created>
+      <created>1745018084041</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1745028491751</updated>
+      <updated>1745018084041</updated>
     </task>
-    <task id="LOCAL-00007" summary="implementación del ejercicio3 y ejercicio9 al main">
+    <task id="LOCAL-00007" summary="Ejericio 8">
       <option name="closed" value="true" />
-      <created>1745106150461</created>
+      <created>1745024858769</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1745106150461</updated>
+      <updated>1745024858769</updated>
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
@@ -142,8 +145,7 @@
     <MESSAGE value="Ejercicio 5" />
     <MESSAGE value="Ejercicio 1 y 2 de nuevo" />
     <MESSAGE value="Cambio en .xml" />
-    <MESSAGE value="Commits pendientes" />
-    <MESSAGE value="implementación del ejercicio3 y ejercicio9 al main" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementación del ejercicio3 y ejercicio9 al main" />
+    <MESSAGE value="Ejericio 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ejericio 8" />
   </component>
 </project>
