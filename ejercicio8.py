@@ -13,6 +13,14 @@ def rellenar_matriz(matriz):
             matriz[fila][columna] = chr(random.randint(65, 90))
 
 
+def encontrar_palabra_random(tamanio_max = 0):
+    tamanio_palabra = abs(random.randint(1, tamanio_max))
+    palabra = ""
+    for letra in range(tamanio_palabra):
+        palabra += (chr(random.randint(65, 90)))
+    return palabra
+
+
 def encontrar_palabra(matriz, palabra):
     palabra_en_chars = list(palabra)
     contador = 0
@@ -50,7 +58,7 @@ def encontrar_palabra(matriz, palabra):
                                 encontrado = False
                                 break
                         if encontrado:
-                            print("\t".join(posiciones))
+                            print("Encontrado en posiciones: " + "\t".join(posiciones))
                             contador += 1
 
     print(f"La palabra {palabra} se ha encontrado {contador} veces.")
@@ -65,7 +73,7 @@ def main(tamanio = 0):
     rellenar_matriz(matriz)
     imprimir_matriz(matriz)
 
-    palabra = input("Ingrese la palabra a buscar: ").upper()
+    palabra = encontrar_palabra_random(int(math.sqrt(tamanio))).upper()
 
     encontrar_palabra(matriz, palabra)
 
