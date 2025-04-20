@@ -18,19 +18,24 @@ def ordenar_matriz_por_insercion(matriz):
     for fila in matriz:
         print(fila)
 
-    # Solicitar al usuario la fila que desea ordenar (índice basado en 0)
-    fila_a_ordenar = int(input("\nIngrese el índice de la fila que desea ordenar (empieza desde 0): "))
+
+    '''
+    Para fines de automatización se ordenara una fila aleatoria entre 0 y el número de filas
+    que tenga la matriz, pero se puede ingresar un input en la variable para que el usuario
+    ingrese la fila a ordenar
+    '''
+    fila_a_ordenar = random.randint(0, (len(matriz)-1))
 
     # Verificar que el índice de la fila sea válido
     if 0 <= fila_a_ordenar < len(matriz):
         # Algoritmo de ordenamiento por inserción
-        for i in range(1, len(matriz[fila_a_ordenar])):
-            clave = matriz[fila_a_ordenar][i]
-            j = i - 1
-            while j >= 0 and matriz[fila_a_ordenar][j] > clave:
-                matriz[fila_a_ordenar][j + 1] = matriz[fila_a_ordenar][j]
-                j -= 1
-            matriz[fila_a_ordenar][j + 1] = clave
+        for indice_actual in range(1, len(matriz[fila_a_ordenar])):
+            clave = matriz[fila_a_ordenar][indice_actual]
+            indice_de_comparacion = indice_actual - 1
+            while indice_de_comparacion >= 0 and matriz[fila_a_ordenar][indice_de_comparacion] > clave:
+                matriz[fila_a_ordenar][indice_de_comparacion + 1] = matriz[fila_a_ordenar][indice_de_comparacion]
+                indice_de_comparacion -= 1
+            matriz[fila_a_ordenar][indice_de_comparacion + 1] = clave
 
         # Imprimir la fila ordenada
         print(f"\nFila {fila_a_ordenar} ordenada:", matriz[fila_a_ordenar])
