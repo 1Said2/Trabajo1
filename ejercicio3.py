@@ -1,43 +1,17 @@
 import random
 import time
 
+def crear_arreglo(cantidad_de_datos):
+    #Tamaño del arrelgo
+    tamanio_arreglo = cantidad_de_datos
+    if tamanio_arreglo <= 0:
+        print("El tamaño debe ser un número entero positivo.")
+        return
+    # Generar el arreglo de numeros aleatorios
+    arreglo_aleatorio = [random.randint(0, 35) for _ in range(tamanio_arreglo)]
+    return arreglo_aleatorio
 
-def generar_arreglo_y_busqueda(cantidad_de_datos):
-        # Tamano del arreglo
-        tamanio_arreglo = cantidad_de_datos
-        if tamanio_arreglo <= 0:
-            print("El tamaño debe ser un número entero positivo.")
-            return
-
-        # Generar el arreglo de numeros aleatorios
-        arreglo_aleatorio = [random.randint(0, 35) for _ in range(tamanio_arreglo)]
-
-        print("\nArreglo original (sin ordenar):")
-        print(arreglo_aleatorio)
-
-        '''
-        Solicitar el elemento a buscar
-        Para fines de automatización se le solicita al sistema que busque un numero aleatorio
-        entre el 0 y 100, pero se puede ingresar los datos manualmente con un input
-        '''
-        elemento_a_buscar = random.randint(0,35)
-
-        # Ordenar el arreglo para la busqueda binaria
-        arreglo_ordenado = sorted(arreglo_aleatorio)
-
-        # Imprimir el arreglo ordenado
-        print("\nArreglo ordenado:")
-        print(arreglo_ordenado)
-
-        # Aplicamos la búsqueda binaria
-        resultados = busqueda_binaria(arreglo_ordenado, elemento_a_buscar)
-
-        if resultados:
-            print(f"\nEl elemento {elemento_a_buscar} se encuentra en las siguientes posiciones: {resultados}")
-        else:
-            print(f"\nEl elemento {elemento_a_buscar} no se encuentra en el arreglo.")
-
-# Aplicamos la busqueda binaria
+# Metodo de busqueda binaria
 def busqueda_binaria(arreglo_ordenado, elemento_a_buscar):
     izquierda, derecha = 0, len(arreglo_ordenado) - 1
     posiciones = []
@@ -66,11 +40,37 @@ def busqueda_binaria(arreglo_ordenado, elemento_a_buscar):
             derecha = mitad - 1
     return sorted(posiciones)
 
-# Ejecutar la funcion principal
+
 def main(cantidad_de_datos=0):
+    arreglo_sin_ordenar = crear_arreglo(cantidad_de_datos)
+    print("\nArreglo original (sin ordenar):")
+    print(arreglo_sin_ordenar)
+
+    '''
+    Solicitar el elemento a buscar
+    Para fines de automatización se le solicita al sistema que busque un numero aleatorio
+    entre el 0 y 100, pero se puede ingresar los datos manualmente con un input
+    '''
+    elemento_a_buscar = random.randint(0, 35)
+
+    # Ordenar el arreglo para la busqueda binaria
+    arreglo_ordenado = sorted(arreglo_sin_ordenar)
+
+    # Imprimir el arreglo ordenado
+    print("\nArreglo ordenado:")
+    print(arreglo_ordenado)
+
+    #Se mide el tiempo unicamente del algoritmo de busqueda
     inicio = time.time()
-    generar_arreglo_y_busqueda(cantidad_de_datos)
+    resultados = busqueda_binaria(arreglo_ordenado, elemento_a_buscar)
     fin = time.time()
+
+    #Se imprime los resultados finales
+    if resultados:
+        print(f"\nEl elemento {elemento_a_buscar} se encuentra en las siguientes posiciones: {resultados}")
+    else:
+        print(f"\nEl elemento {elemento_a_buscar} no se encuentra en el arreglo.")
+
     return fin - inicio
 if __name__ == "__main__":
     main()
