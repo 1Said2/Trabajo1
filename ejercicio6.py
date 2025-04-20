@@ -26,7 +26,7 @@ def rellenar_matriz(matriz, orden):
 
 
 def main(tamanio = 0):
-    orden = int(math.sqrt(tamanio))
+    orden = tamanio//10
 
     matriz = [[0] * orden for _ in range(orden)]
 

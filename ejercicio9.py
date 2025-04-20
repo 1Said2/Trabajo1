@@ -5,9 +5,8 @@ from contextlib import nullcontext
 
 # Función para crear la matriz
 def crear_matriz(cantidad_de_elementos):
-    division = cantidad_de_elementos // 2
-    filas = division
-    columnas = division + 2 #Se suma dos elementos para mantener la relación de n x m
+    filas = 10
+    columnas = cantidad_de_elementos
 
     # Crear la matriz con números aleatorios entre 0 y 100
     matriz = [[random.randint(0, 100) for _ in range(columnas)] for _ in range(filas)]

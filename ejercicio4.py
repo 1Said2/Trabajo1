@@ -1,9 +1,13 @@
 import random
 import time
 
-def generar_matriz_aleatoria(num_filas, num_columnas, min_val=0, max_val=100):
-    return [[random.randint(min_val, max_val) for _ in range(num_columnas)] for _ in range(num_filas)]
-
+def generar_matriz_aleatoria(cantidad_datos, min_val=0, max_val=100):
+    matriz = [[random.randint(min_val, max_val) for _ in range(cantidad_datos)] for _ in range(cantidad_datos)]
+    lista_ordenada = sorted([num for fila in matriz for num in fila])
+    filas = len(matriz)
+    columnas = len(matriz[0])
+    matriz_ordenada = [lista_ordenada[i * columnas: (i + 1) * columnas] for i in range(filas)]
+    return matriz_ordenada
 
 def busqueda_matriz_ordenada(matriz, objetivo):
     filas = len(matriz)
@@ -41,19 +45,14 @@ def busqueda_matriz_ordenada(matriz, objetivo):
 
 def main(cantidad_de_datos=0):
     try:
-
-        matriz = generar_matriz_aleatoria(cantidad_de_datos, cantidad_de_datos)
-        lista_ordenada = sorted([num for fila in matriz for num in fila])
-        filas = len(matriz)
-        columnas = len(matriz[0])
-        matriz_ordenada = [lista_ordenada[i * columnas: (i + 1) * columnas] for i in range(filas)]
+        matriz = generar_matriz_aleatoria(cantidad_de_datos//10)
         print("Matriz Generada:")
-        for fila in matriz_ordenada:
+        for fila in matriz:
             print(fila)
         objetivo = random.randint(0, 100)
         inicio = time.time()
         
-        posiciones = busqueda_matriz_ordenada(matriz_ordenada, objetivo)
+        posiciones = busqueda_matriz_ordenada(matriz, objetivo)
 
         fin = time.time()
         if posiciones:
