@@ -4,11 +4,18 @@ import time
 Genera la matriz con numeros aleatorios y la ordena antes de enviarla
 '''
 def generar_matriz_aleatoria(cantidad_datos, min_val=0, max_val=100):
-    matriz = [[random.randint(min_val, max_val) for _ in range(cantidad_datos)] for _ in range(cantidad_datos)]
+    matriz = [
+        [random.randint(min_val, max_val) 
+         for _ in range(cantidad_datos)] 
+         for _ in range(cantidad_datos)
+         ]
+    
     lista_ordenada = sorted([num for fila in matriz for num in fila])
     filas = len(matriz)
     columnas = len(matriz[0])
-    matriz_ordenada = [lista_ordenada[i * columnas: (i + 1) * columnas] for i in range(filas)]
+    matriz_ordenada = [
+        lista_ordenada[i * columnas: (i + 1) * columnas] 
+        for i in range(filas)]
     return matriz_ordenada
 
 def busqueda_matriz_ordenada(matriz, objetivo):
@@ -24,12 +31,14 @@ def busqueda_matriz_ordenada(matriz, objetivo):
         #Calcular la fila y columna medianas sin que se salga de los limites
         fila = medio // columnas
         columna = medio % columnas
+
         if matriz[fila][columna] == objetivo:
 
             #Buscar hacia la derecha y abajo todas las apariciones
             while fila < filas and matriz[fila][columna] == objetivo:
                 resultados.append([fila, columna])
                 columna = (columna + 1) % columnas
+
                 if columna == 0:
                     fila += 1
 
@@ -46,10 +55,12 @@ def busqueda_matriz_ordenada(matriz, objetivo):
                 if columna == columnas - 1:
                     fila -= 1
             break
+
         elif matriz[fila][columna] < objetivo:
             izquierda = medio + 1
         else:
             derecha = medio - 1
+            
     return sorted(resultados)
 
 def main(cantidad_de_datos=0):
@@ -58,6 +69,7 @@ def main(cantidad_de_datos=0):
         print("Matriz Generada:")
         for fila in matriz:
             print(fila)
+
         #Se manda un numero aleatorio como objetivo con fines practicos
         objetivo = random.randint(0, 100)
         inicio = time.time()
